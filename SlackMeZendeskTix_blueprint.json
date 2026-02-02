@@ -1,0 +1,1654 @@
+{
+    "name": "Slack me ZENDESK Cases by OrgIDs",
+    "flow": [
+        {
+            "id": 28,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "zd-cookie",
+                        "value": "_zendesk_cookie=BAhJIkd7ImRldmljZV90b2tlbnMiOnsiNDY1NzM0MTk1IjoieFhFeGl2dU13Nlh6dk5DQm4weHpsOW5lOUw0d1JRZ2EifX0GOgZFVA%3D%3D--4271e1c541ad19ddd13512839a40932d2e6e1c76; _hjSessionUser_1694280=eyJpZCI6IjE0MmFhZjJkLTBkNjQtNTljYi1iMTViLTA3NzBhN2U5MzAyMSIsImNyZWF0ZWQiOjE3NTMzNjc4OTg4MTIsImV4aXN0aW5nIjpmYWxzZX0=; _ga=GA1.1.465172506.1753367899; _ga_FBP7C61M6Z=GS2.1.s1753367898$o1$g0$t1753368902$j58$l0$h0; ajs_anonymous_id=5c51f2ee-e8e3-4bda-a491-daf9866f0c75; ajs_user_id=465734195; ajs_group_id=302744; _pendo_visitorId.df3d609f-14a9-4a77-b441-73602a4aaab2=465734195; _pendo_accountId.df3d609f-14a9-4a77-b441-73602a4aaab2=302744; _pendo___sg__.df3d609f-14a9-4a77-b441-73602a4aaab2=%7B%22visitormetadata%22%3A%7B%22agent__support_user_role%22%3A%22Agent%22%7D%7D; __cf_bm=ZYMBRuG9SpZIMdkZZvXEWRsQUYeeIrRAx6JMlUj2CLQ-1770048465-1.0.1.1-DOp_RcKKM8eJW0O5JeVgQo.XDxeax.tmLBRBJlQWicN2FRADOehPDf0YzvPKGP8lcXHFYioe2uRX6uT.TLZQZJE_Me0PsENtnLoTZj0rSpQ; _cfuvid=oYbhs.S7f6BtQYMXem.LtnFm.xq.cemtdeQp3ODVVvQ-1770048465688-0.0.1.1-604800000; _help_center_session=N3VpZ24xV253NGYzZzRjaU1zTWtKZk1tY2loOUNXbVhCbTZrWW1hNUNkVTlUQ2wremRnNkEzK1M5NEhjYXR3MVdES2dmN3RicDJHRDFMcTZWMThLbWc9PS0tNWxoalNpVW1RQWVVYTR3cU5pVSttZz09--2bbc1dbec3a8dc68aa19c2cb7cc5490ba28935cf; _zendesk_shared_session=-TmtPZEtTT01KVkVDcFVqUnBwNXY1eW45TlVFL3VOVnNJMmNqVkdDWkNNRHFoZ2lhMVZMbU42UTdXZ3JURFcrZzF5MXI4Qm5UajZRcUx3UktKbmkvVzdlU2hicnY0MDdMTFd5L1UrQmRZMHY3eVVFWjMwNjB3WjJaL1hXZGlEUDQtLWFPTU1tUGQyMXppTkxudjNtUWd3MkE9PQ%3D%3D--6f3e9baca5654851bfcfb16c414889593e708e5c; _zendesk_authenticated=1; __cf_bm=xVZOqVxJtGUZt_OZ4Icl1.tQhvJuX90YDa8QWPWu6QE-1770048472-1.0.1.1-BWbm10lRS41WZpwUGYMRQU08T6NqCoYb5JGURygHrDAq9UjCcjtbDrfKy9.9sxA5Du5zKQMlRVT34LussjJt0f4wVR3cenCGcyoreN_7IQWKFHnrag.7K4TgEjogrT6d; _cfuvid=0_6uuteHSB07561SEm9MHL1mxIIsON9Z5.U3jfoBZRY-1770048472436-0.0.1.1-604800000; _app_market_session=YkVmTDNQUXgwSkg4ZDE2MGUyMW1QQzdybEFncUFtcG0yNm9WbTNQaDBtREJEYWs3N2ZiMEhyRGxzL2dUWklGekUvTHI3TktkVmlyNk0vMG55d2o3MlVSQUROL2pjOFI5WTBBdkZiN3pxSlJHazdKSFJqck83V3NOVGpEOVRDaFlVT0JrRVpHRDRYZHh2dEg1Nm8vV1J3PT0tLTBMaG9vTTRYN0xPT2NGYjg2T1hOUmc9PQ%3D%3D--9fbb5a94834d8e798455e08115c0d4df14f12471; _pendo_unsentEvents.df3d609f-14a9-4a77-b441-73602a4aaab2=; _pendo_utm.df3d609f-14a9-4a77-b441-73602a4aaab2=%7B%22referrer%22%3A%22adobeprimetime.zendesk.com%22%7D; _pendo_guides_blocked.df3d609f-14a9-4a77-b441-73602a4aaab2=0; _pendo_meta.df3d609f-14a9-4a77-b441-73602a4aaab2=1372026791; _pendo_sessionId.df3d609f-14a9-4a77-b441-73602a4aaab2=%7B%22sessionId%22%3A%22jAsj0FlEoC6HwyBD%22%2C%22timestamp%22%3A1770048475130%7D; _dd_s=rum=0&expire=1770049371732; _zendesk_session=mrp%2B%2BndNmKioI64tKp%2FKlARCg%2FoZzgFqGEA5ct%2B1BAATUfnJh2O2mUZv8KM8kSxXYpvGQZjxx6D9LQxPyiTtFvNXsImi6AkaDOirn5IJvO1vgMqnha1AH0pSl%2BU2SwTKALNuTD208n5Y44omlcPHMCnqFD1Y91%2FC0uhYNzGryKx9DesU38CcrT1W0HjGIDWSOAXKi0FGmyn5L9uTPxgpksP8cnJeDQPxsKBy0MhtlIOPUZihWQnFuC%2Be5vMsd984ZO2pG7MCc8QO3pd8uv%2FrzCGNt98y9h6HIoCiVJ9obPpCybZLKMQXEN10XHT4T2CD5RtUEmS8SoJ8GuadzJzi7xFRM1N9cPD%2FiLTSwE1%2FWNHW2eN3dLYLKLkMuXw5HzE8HCpKl5wvO8KLHpSW1MBPwei30PKEbiKKR6nfqrv7ulbxRMXC83Swcl5JZesQCplxOVUB04AIe%2BgPpMt%2BWMWz0yiETNvT5qtZkVUHUUaf1Z%2FoBNns2xNamocAzj4KkCpP1RbK1hPimTNQF%2FQm0uJPGFAh%2FXANMX%2FZeIAVV0l%2BzonCTMyJ2HQAw2nIKkvcB%2B6ASu%2BipFCAgpr%2BnJLsVSlgHCKNnnchg0Xob8n%2B4swL9a1MIC4q3TLyNg%3D%3D--Oldc54gjRM%2BKvAmZ--bFxsbRgZR4nMYYWnTPKE6w%3D%3D"
+                    },
+                    {
+                        "name": "slack-channelid",
+                        "value": "D19N44D36"
+                    },
+                    {
+                        "name": "OrgIdCSV",
+                        "value": "{{split(\"652211649, 652211819, 33507473, 360963153812, 14871641628, 27072917\"; \",\")}}"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "scope": {
+                        "label": "One cycle"
+                    },
+                    "variables": {
+                        "items": [
+                            "undefined",
+                            "undefined",
+                            "undefined"
+                        ]
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "zd-cookie",
+                        "type": "any",
+                        "label": "zd-cookie"
+                    },
+                    {
+                        "name": "slack-channelid",
+                        "type": "any",
+                        "label": "slack-channelid"
+                    },
+                    {
+                        "name": "OrgIdCSV",
+                        "type": "any",
+                        "label": "OrgIdCSV"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 24,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{28.OrgIdCSV}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0,
+                    "name": "iterate OrgIDs array"
+                },
+                "restore": {
+                    "array": {
+                        "mode": "edit"
+                    }
+                },
+                "expect": [
+                    {
+                        "mode": "edit",
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 26,
+            "module": "http:ActionSendData",
+            "version": 3,
+            "parameters": {
+                "handleErrors": false
+            },
+            "mapper": {
+                "ca": "",
+                "qs": [],
+                "url": "https://adobeprimetime.zendesk.com/api/v2/search.json?query=type:ticket%20organization:{{24.value}}%20status:hold%20status:pending%20status:open",
+                "gzip": true,
+                "method": "get",
+                "headers": [
+                    {
+                        "name": "cookie",
+                        "value": "{{28.`zd-cookie`}}"
+                    }
+                ],
+                "timeout": "",
+                "useMtls": false,
+                "authPass": "",
+                "authUser": "",
+                "bodyType": "",
+                "shareCookies": false,
+                "parseResponse": false,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "followAllRedirects": false,
+                "rejectUnauthorized": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0,
+                    "name": "get ORGID tickets"
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "GET"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined"
+                        ]
+                    },
+                    "bodyType": {
+                        "label": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers",
+                        "labels": {
+                            "add": "Add a header",
+                            "edit": "Edit a header"
+                        }
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String",
+                        "labels": {
+                            "add": "Add parameter",
+                            "edit": "Edit parameter"
+                        }
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "validate": {
+                            "enum": [
+                                "raw",
+                                "x_www_form_urlencoded",
+                                "multipart_form_data"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "authUser",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "authPass",
+                        "type": "password",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "ca",
+                        "type": "cert",
+                        "label": "Self-signed certificate",
+                        "multiline": true
+                    },
+                    {
+                        "name": "rejectUnauthorized",
+                        "type": "boolean",
+                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                        "required": true
+                    },
+                    {
+                        "name": "followRedirect",
+                        "type": "boolean",
+                        "label": "Follow redirect",
+                        "required": true
+                    },
+                    {
+                        "name": "useQuerystring",
+                        "type": "boolean",
+                        "label": "Disable serialization of multiple same query string keys as arrays",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "useMtls",
+                        "type": "boolean",
+                        "label": "Use Mutual TLS",
+                        "required": true
+                    },
+                    {
+                        "name": "followAllRedirects",
+                        "type": "boolean",
+                        "label": "Follow all redirect",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 27,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": 25582
+            },
+            "mapper": {
+                "json": "{{26.data}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                },
+                "restore": {
+                    "type": {
+                        "label": "ZD_USER"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "user",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text"
+                            },
+                            {
+                                "name": "created_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "updated_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "time_zone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "iana_time_zone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "phone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "shared_phone_number",
+                                "type": "text"
+                            },
+                            {
+                                "name": "photo",
+                                "type": "text"
+                            },
+                            {
+                                "name": "locale_id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "locale",
+                                "type": "text"
+                            },
+                            {
+                                "name": "organization_id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "role",
+                                "type": "text"
+                            },
+                            {
+                                "name": "verified",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "external_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "tags",
+                                "type": "array"
+                            },
+                            {
+                                "name": "alias",
+                                "type": "text"
+                            },
+                            {
+                                "name": "active",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "shared",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "shared_agent",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "last_login_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "two_factor_auth_enabled",
+                                "type": "text"
+                            },
+                            {
+                                "name": "signature",
+                                "type": "text"
+                            },
+                            {
+                                "name": "details",
+                                "type": "text"
+                            },
+                            {
+                                "name": "notes",
+                                "type": "text"
+                            },
+                            {
+                                "name": "role_type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "custom_role_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "moderator",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "ticket_restriction",
+                                "type": "text"
+                            },
+                            {
+                                "name": "only_private_comments",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "restricted_agent",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "suspended",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "default_group_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "report_csv",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "user_fields",
+                                "spec": [],
+                                "type": "collection"
+                            }
+                        ],
+                        "type": "collection"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 17,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{27.results}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "array": {
+                        "mode": "edit"
+                    }
+                },
+                "expect": [
+                    {
+                        "mode": "edit",
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 32,
+            "module": "http:ActionSendData",
+            "version": 3,
+            "parameters": {
+                "handleErrors": false
+            },
+            "mapper": {
+                "ca": "",
+                "qs": [],
+                "url": "https://adobeprimetime.zendesk.com/api/v2/users/{{17.requester_id}}.json",
+                "gzip": true,
+                "method": "get",
+                "headers": [
+                    {
+                        "name": "cookie",
+                        "value": "{{28.`zd-cookie`}}"
+                    }
+                ],
+                "timeout": "",
+                "useMtls": false,
+                "authPass": "",
+                "authUser": "",
+                "bodyType": "",
+                "shareCookies": false,
+                "parseResponse": false,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "followAllRedirects": false,
+                "rejectUnauthorized": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1500,
+                    "y": 0,
+                    "name": "get requestor record"
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "GET"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined"
+                        ]
+                    },
+                    "bodyType": {
+                        "label": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers",
+                        "labels": {
+                            "add": "Add a header",
+                            "edit": "Edit a header"
+                        }
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String",
+                        "labels": {
+                            "add": "Add parameter",
+                            "edit": "Edit parameter"
+                        }
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "validate": {
+                            "enum": [
+                                "raw",
+                                "x_www_form_urlencoded",
+                                "multipart_form_data"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "authUser",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "authPass",
+                        "type": "password",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "ca",
+                        "type": "cert",
+                        "label": "Self-signed certificate",
+                        "multiline": true
+                    },
+                    {
+                        "name": "rejectUnauthorized",
+                        "type": "boolean",
+                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                        "required": true
+                    },
+                    {
+                        "name": "followRedirect",
+                        "type": "boolean",
+                        "label": "Follow redirect",
+                        "required": true
+                    },
+                    {
+                        "name": "useQuerystring",
+                        "type": "boolean",
+                        "label": "Disable serialization of multiple same query string keys as arrays",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "useMtls",
+                        "type": "boolean",
+                        "label": "Use Mutual TLS",
+                        "required": true
+                    },
+                    {
+                        "name": "followAllRedirects",
+                        "type": "boolean",
+                        "label": "Follow all redirect",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 33,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": 25582
+            },
+            "mapper": {
+                "json": "{{32.data}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1800,
+                    "y": 0
+                },
+                "restore": {
+                    "type": {
+                        "label": "ZD_USER"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "user",
+                        "spec": [
+                            {
+                                "name": "id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "url",
+                                "type": "text"
+                            },
+                            {
+                                "name": "name",
+                                "type": "text"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text"
+                            },
+                            {
+                                "name": "created_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "updated_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "time_zone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "iana_time_zone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "phone",
+                                "type": "text"
+                            },
+                            {
+                                "name": "shared_phone_number",
+                                "type": "text"
+                            },
+                            {
+                                "name": "photo",
+                                "type": "text"
+                            },
+                            {
+                                "name": "locale_id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "locale",
+                                "type": "text"
+                            },
+                            {
+                                "name": "organization_id",
+                                "type": "number"
+                            },
+                            {
+                                "name": "role",
+                                "type": "text"
+                            },
+                            {
+                                "name": "verified",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "external_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "tags",
+                                "type": "array"
+                            },
+                            {
+                                "name": "alias",
+                                "type": "text"
+                            },
+                            {
+                                "name": "active",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "shared",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "shared_agent",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "last_login_at",
+                                "type": "text"
+                            },
+                            {
+                                "name": "two_factor_auth_enabled",
+                                "type": "text"
+                            },
+                            {
+                                "name": "signature",
+                                "type": "text"
+                            },
+                            {
+                                "name": "details",
+                                "type": "text"
+                            },
+                            {
+                                "name": "notes",
+                                "type": "text"
+                            },
+                            {
+                                "name": "role_type",
+                                "type": "text"
+                            },
+                            {
+                                "name": "custom_role_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "moderator",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "ticket_restriction",
+                                "type": "text"
+                            },
+                            {
+                                "name": "only_private_comments",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "restricted_agent",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "suspended",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "default_group_id",
+                                "type": "text"
+                            },
+                            {
+                                "name": "report_csv",
+                                "type": "boolean"
+                            },
+                            {
+                                "name": "user_fields",
+                                "spec": [],
+                                "type": "collection"
+                            }
+                        ],
+                        "type": "collection"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 35,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "req_email",
+                        "value": "{{33.user.email}}"
+                    },
+                    {
+                        "name": "req_name",
+                        "value": "{{33.user.name}}"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2100,
+                    "y": 0
+                },
+                "restore": {
+                    "scope": {
+                        "label": "One cycle"
+                    },
+                    "variables": {
+                        "items": [
+                            "undefined",
+                            "undefined"
+                        ]
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "req_email",
+                        "type": "any",
+                        "label": "req_email"
+                    },
+                    {
+                        "name": "req_name",
+                        "type": "any",
+                        "label": "req_name"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 14,
+            "module": "util:TextAggregator",
+            "version": 1,
+            "parameters": {
+                "feeder": 17,
+                "rowSeparator": "\n"
+            },
+            "mapper": {
+                "value": "- <https://adobeprimetime.zendesk.com/agent/tickets/{{17.id}} | {{17.id}}> {{17.subject}} `{{17.status}}` <mailto:{{35.req_email}}|{{35.req_name}}>\\r\\n"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2400,
+                    "y": 0
+                },
+                "restore": {
+                    "feeder": {
+                        "label": "Iterator [17]"
+                    },
+                    "rowSeparator": {
+                        "label": "New row"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "rowSeparator",
+                        "type": "select",
+                        "label": "Row separator",
+                        "validate": {
+                            "enum": [
+                                "\n",
+                                "\t",
+                                "other"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "Text",
+                        "multiline": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 29,
+            "module": "http:ActionSendData",
+            "version": 3,
+            "parameters": {
+                "handleErrors": false
+            },
+            "mapper": {
+                "ca": "",
+                "qs": [],
+                "url": "https://adobeprimetime.zendesk.com/api/v2/organizations/{{24.value}}.json",
+                "gzip": true,
+                "method": "get",
+                "headers": [
+                    {
+                        "name": "cookie",
+                        "value": "{{28.`zd-cookie`}}"
+                    }
+                ],
+                "timeout": "",
+                "useMtls": false,
+                "authPass": "",
+                "authUser": "",
+                "bodyType": "",
+                "shareCookies": false,
+                "parseResponse": false,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "followAllRedirects": false,
+                "rejectUnauthorized": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2700,
+                    "y": 0,
+                    "name": "get ORG record"
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "GET"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined"
+                        ]
+                    },
+                    "bodyType": {
+                        "label": ""
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "handleErrors",
+                        "type": "boolean",
+                        "label": "Evaluate all states as errors (except for 2xx and 3xx )",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers",
+                        "labels": {
+                            "add": "Add a header",
+                            "edit": "Edit a header"
+                        }
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String",
+                        "labels": {
+                            "add": "Add parameter",
+                            "edit": "Edit parameter"
+                        }
+                    },
+                    {
+                        "name": "bodyType",
+                        "type": "select",
+                        "label": "Body type",
+                        "validate": {
+                            "enum": [
+                                "raw",
+                                "x_www_form_urlencoded",
+                                "multipart_form_data"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "authUser",
+                        "type": "text",
+                        "label": "User name"
+                    },
+                    {
+                        "name": "authPass",
+                        "type": "password",
+                        "label": "Password"
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "ca",
+                        "type": "cert",
+                        "label": "Self-signed certificate",
+                        "multiline": true
+                    },
+                    {
+                        "name": "rejectUnauthorized",
+                        "type": "boolean",
+                        "label": "Reject connections that are using unverified (self-signed) certificates",
+                        "required": true
+                    },
+                    {
+                        "name": "followRedirect",
+                        "type": "boolean",
+                        "label": "Follow redirect",
+                        "required": true
+                    },
+                    {
+                        "name": "useQuerystring",
+                        "type": "boolean",
+                        "label": "Disable serialization of multiple same query string keys as arrays",
+                        "required": true
+                    },
+                    {
+                        "name": "gzip",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "useMtls",
+                        "type": "boolean",
+                        "label": "Use Mutual TLS",
+                        "required": true
+                    },
+                    {
+                        "name": "followAllRedirects",
+                        "type": "boolean",
+                        "label": "Follow all redirect",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 30,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": 26259
+            },
+            "mapper": {
+                "json": "{{29.data}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3000,
+                    "y": 0
+                },
+                "restore": {
+                    "type": {
+                        "label": "ZD_ORG"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "active",
+                        "type": "boolean"
+                    },
+                    {
+                        "name": "created_at",
+                        "type": "text"
+                    },
+                    {
+                        "name": "description",
+                        "type": "text"
+                    },
+                    {
+                        "name": "id",
+                        "type": "number"
+                    },
+                    {
+                        "name": "key",
+                        "type": "text"
+                    },
+                    {
+                        "name": "position",
+                        "type": "number"
+                    },
+                    {
+                        "name": "raw_description",
+                        "type": "text"
+                    },
+                    {
+                        "name": "raw_title",
+                        "type": "text"
+                    },
+                    {
+                        "name": "regexp_for_validation",
+                        "type": "text"
+                    },
+                    {
+                        "name": "title",
+                        "type": "text"
+                    },
+                    {
+                        "name": "type",
+                        "type": "text"
+                    },
+                    {
+                        "name": "updated_at",
+                        "type": "text"
+                    },
+                    {
+                        "name": "url",
+                        "type": "text"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 31,
+            "module": "util:SetVariable2",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "name": "org_name",
+                "scope": "roundtrip",
+                "value": "{{30.organization.name}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3300,
+                    "y": 0,
+                    "name": "SET_ORG_NAME"
+                },
+                "restore": {
+                    "scope": {
+                        "label": "One cycle"
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "name",
+                        "type": "text",
+                        "label": "Variable name",
+                        "required": true
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "value",
+                        "type": "any",
+                        "label": "Variable value"
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "org_name",
+                        "type": "any",
+                        "label": "org_name"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 25,
+            "module": "slack:MakeAPICall",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 92572
+            },
+            "mapper": {
+                "url": "chat.postMessage",
+                "auth": "header",
+                "body": "{\n\"channel\" : \"{{28.`slack-channelid`}}\",\n\"markdown_text\":\"**{{31.org_name}} CASES**\\n{{14.text}}\"\n}",
+                "method": "POST",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "slackdomain": "https://slack.com/api/"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 3600,
+                    "y": 0
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "auth": {
+                        "mode": "chose",
+                        "label": "as a header"
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "POST"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined"
+                        ]
+                    },
+                    "__IMTCONN__": {
+                        "label": "My Slack connection (minnick)"
+                    },
+                    "slackdomain": {
+                        "mode": "chose",
+                        "label": "https://slack.com/api/"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    },
+                    {
+                        "name": "slackdomain",
+                        "type": "select",
+                        "label": "Base URL",
+                        "validate": {
+                            "enum": [
+                                "https://slack.com/api/",
+                                "https://hooks.slack.com/"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "auth",
+                        "type": "select",
+                        "label": "Send access token",
+                        "validate": {
+                            "enum": [
+                                "header",
+                                "query"
+                            ]
+                        }
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": [],
+            "notes": [
+                {
+                    "id": 14,
+                    "text": "TOOLS Text aggregator oftentimes runs into issues if ticket title gets too long, forcing the URL to ticket to go over Slack's length limits and cause an ERROR 414.\n\nTODO: presently substring title to 75 characters in length.\n\nIs this the best option for creating dynamic hyperlinks to tickets?",
+                    "coords": {
+                        "x": 1476.2609417286874,
+                        "y": -440.5763700947226
+                    },
+                    "filter": true
+                },
+                {
+                    "id": 14,
+                    "text": "TODO: added Case requestor email for the eventual connection of Requestor TICKETS & EMAILS from:requestor",
+                    "filter": false
+                }
+            ]
+        },
+        "zone": "app.workfrontfusion.com"
+    }
+}

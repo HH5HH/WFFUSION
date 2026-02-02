@@ -1,0 +1,436 @@
+{
+    "name": "Get Calls",
+    "flow": [
+        {
+            "id": 3,
+            "module": "util:SetVariables",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "scope": "roundtrip",
+                "variables": [
+                    {
+                        "name": "slack-channelid",
+                        "value": "D19N44D36"
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "scope": {
+                        "label": "One cycle"
+                    },
+                    "variables": {
+                        "items": [
+                            "undefined"
+                        ]
+                    }
+                },
+                "expect": [
+                    {
+                        "name": "variables",
+                        "spec": [
+                            {
+                                "name": "name",
+                                "type": "text",
+                                "label": "Variable name",
+                                "required": true
+                            },
+                            {
+                                "name": "value",
+                                "type": "any",
+                                "label": "Variable value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Variables"
+                    },
+                    {
+                        "name": "scope",
+                        "type": "select",
+                        "label": "Variable lifetime",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "roundtrip",
+                                "execution"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "slack-channelid",
+                        "type": "any",
+                        "label": "slack-channelid"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 1,
+            "module": "microsoft-email:makeApiCall",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 65921
+            },
+            "mapper": {
+                "url": "/v1.0/me/calendarView?startDateTime={{formatDate(now; \"YYYY-MM-DDT00:00\")}}&endDateTime={{formatDate(now; \"YYYY-MM-DDT23:59\")}}&$orderby=start/dateTime&$select=subject,organizer,start,end,onlineMeeting,location,isOnlineMeeting,onlineMeetingUrl,webLink&$top=1000",
+                "method": "GET",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Prefer",
+                        "value": "outlook.timezone=\"Mountain Standard Time\""
+                    }
+                ]
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "GET"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined",
+                            "undefined"
+                        ]
+                    },
+                    "__IMTCONN__": {
+                        "label": "My Microsoft 365 connection (Eric Minnick)"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "builtin:BasicFeeder",
+            "version": 1,
+            "parameters": {},
+            "mapper": {
+                "array": "{{1.body.value}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "array": {
+                        "mode": "edit"
+                    }
+                },
+                "expect": [
+                    {
+                        "mode": "edit",
+                        "name": "array",
+                        "spec": [],
+                        "type": "array",
+                        "label": "Array"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "util:TextAggregator",
+            "version": 1,
+            "parameters": {
+                "feeder": 7,
+                "rowSeparator": "\n"
+            },
+            "mapper": {
+                "value": "~————————————————————————————————————————————————————~\n **{{formatDate(7.start.dateTime; \"hh:mm\")}} {{7.subject}}**\n- <{{7.webLink}}|JOIN>\n- NOTES : \n~————————————————————————————————————————————————————~\\n"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0,
+                    "name": "JAM SANDWICH"
+                },
+                "restore": {
+                    "feeder": {
+                        "label": "Iterator [7]"
+                    },
+                    "rowSeparator": {
+                        "label": "New row"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "rowSeparator",
+                        "type": "select",
+                        "label": "Row separator",
+                        "validate": {
+                            "enum": [
+                                "\n",
+                                "\t",
+                                "other"
+                            ]
+                        }
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "value",
+                        "type": "text",
+                        "label": "Text",
+                        "multiline": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 9,
+            "module": "slack:MakeAPICall",
+            "version": 3,
+            "parameters": {
+                "__IMTCONN__": 92572
+            },
+            "mapper": {
+                "url": "chat.postMessage",
+                "auth": "header",
+                "body": "{\n  \"channel\": \"{{3.`slack-channelid`}}\",\n  \"markdown_text\": \"**CALLS** \\r{{2.text}}\"\n}",
+                "method": "POST",
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "slackdomain": "https://slack.com/api/"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1200,
+                    "y": 0
+                },
+                "restore": {
+                    "qs": {
+                        "mode": "chose",
+                        "items": []
+                    },
+                    "auth": {
+                        "mode": "chose",
+                        "label": "as a header"
+                    },
+                    "method": {
+                        "mode": "chose",
+                        "label": "POST"
+                    },
+                    "headers": {
+                        "mode": "chose",
+                        "items": [
+                            "undefined"
+                        ]
+                    },
+                    "__IMTCONN__": {
+                        "label": "My Slack connection (minnick)"
+                    },
+                    "slackdomain": {
+                        "mode": "chose",
+                        "label": "https://slack.com/api/"
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "text",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "GET",
+                                "POST",
+                                "PUT",
+                                "PATCH",
+                                "DELETE"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "qs",
+                        "spec": [
+                            {
+                                "name": "key",
+                                "type": "text",
+                                "label": "Key"
+                            },
+                            {
+                                "name": "value",
+                                "type": "text",
+                                "label": "Value"
+                            }
+                        ],
+                        "type": "array",
+                        "label": "Query String"
+                    },
+                    {
+                        "name": "body",
+                        "type": "any",
+                        "label": "Body"
+                    },
+                    {
+                        "name": "slackdomain",
+                        "type": "select",
+                        "label": "Base URL",
+                        "validate": {
+                            "enum": [
+                                "https://slack.com/api/",
+                                "https://hooks.slack.com/"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "auth",
+                        "type": "select",
+                        "label": "Send access token",
+                        "validate": {
+                            "enum": [
+                                "header",
+                                "query"
+                            ]
+                        }
+                    }
+                ],
+                "advanced": true
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "app.workfrontfusion.com"
+    }
+}
